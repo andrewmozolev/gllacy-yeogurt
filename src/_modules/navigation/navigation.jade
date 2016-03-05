@@ -1,16 +1,20 @@
 mixin navigation
 
-  nav.navigation
-    ul.navigation__list
+  +b('nav').navigation
+    +e('ul').list
       each item in site.data.menu
-        li.navigation__item
-          a.navigation__link(href="#",title=item.name)
-            span.navigation__link-inner= item.name
-          if (item.subList)
-            ul.navigation__sub-list
-              each val in item.subList
-                li.navigation__sub-item
-                  if (val.subTitle)
-                    b.navigation__sub-title= val.subTitle
-                  if (val.subName)
-                    a.navigation__sub-link(href="#",title=val.subName)= val.subName
+        +e('li').item
+          +e('a').link(href="#",title=item.name)
+            +e('span').link-inner= item.name
+          if (item.subMenu)
+            +e('ul').sub-list
+              if (item.subTitle)
+                +e('li').sub-item
+                  +e('b').sub-title= item.subTitle
+              each val in item.subMenu
+                if (val.promo)
+                  +e('li').sub-item
+                    +e('b').sub-title= val.promo
+                else
+                  +e('li').sub-item
+                    +e('a').sub-link(href=val.link,title=val.name)= val.name

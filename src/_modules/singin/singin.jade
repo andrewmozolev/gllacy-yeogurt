@@ -1,6 +1,21 @@
-mixin singin(spec)
-  - spec = spec || {}
-  - spec.__class = spec.__class || ''
+mixin singin
 
-  div(class=spec.__class)&attributes(attributes)
-    p This is an example paragraph for the singin module
+  +b.singin
+    +e('a').link(href="#", title="Вход")
+      +e('svg').link-svg.svg-icon_singin
+        use(xlink:href="images/svg-sprite.svg#icon_singin")
+      | Вход
+    +e('form').form(action="/echo", method="post")
+      +e('label').input-label(for="email")
+        +e('input').input(type="email", name="email", id="email", placeholder="Электронная почта")
+        +e('span').input-name Электронная почта
+      +e('label').input-label(for="password")
+        +e('input').input(type="password", name="password", id="password",  placeholder="Пароль")
+        +e('span').input-name Пароль
+      +e.buttons
+        +b('input').btn.--singin(type="submit", name="user-send", id="user-send", value="Войти")
+        +e.links
+          +e.link-wrap
+            +e('a').form-link(href="#") Забыли пароль?
+          +e.link-wrap
+            +e('a').form-link(href="#") Новая регистрация

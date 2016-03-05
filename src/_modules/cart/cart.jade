@@ -1,6 +1,45 @@
-mixin cart(spec)
-  - spec = spec || {}
-  - spec.__class = spec.__class || ''
+mixin cart
 
-  div(class=spec.__class)&attributes(attributes)
-    p This is an example paragraph for the cart module
+  +b.cart
+    +e('a').link(href="#" title="Корзина")
+      +e('svg').link-svg.svg-icon_cart
+        use(xlink:href="images/svg-sprite.svg#icon_cart")
+        +e('svg').link-svg-full.svg-icon_cart--full
+          use(xlink:href="images/svg-sprite.svg#icon_cart--full")
+        +e('span').empty Пусто
+    +e.form
+      +e('table').table
+        +e('tr').tr
+          +e('td').td
+            +e('a').del-link(href="#" title="Delete")
+              +e('svg').del-svg.svg-icon_close
+                use(xlink:href="images/svg-sprite.svg#icon_close")
+          +e('td').td
+            +e('a').table-link(href="#")
+              +e('img').img(src="images/img_product-1.png" width="34" height="34" alt="")
+              |Пломбир с апельсиновым джемом
+          +e('td').td 1,5 кг
+            +e('span').price х 200 руб.
+          +e('td').td 300 руб.
+        //-   <tr class="cart__tr">
+        //-     <td class="cart__td">
+        //-       <a class="cart__del-link" href="#" title="Delete">
+        //-         <svg class="cart__del-svg  svg-icon_close">
+        //-           <use xlink:href="img/svg-sprite.svg#icon_close"></use>
+        //-         </svg>
+        //-       </a>
+        //-     </td>
+        //-     <td class="cart__td">
+        //-       <a class="cart__table-link" href="#">
+        //-         <img class="cart__img" src="img/img_product-3.png" width="34" height="34" alt="">
+        //-         Клубничный пломбир с присыпкой из белого шоколада
+        //-       </a>
+        //-     </td>
+        //-     <td class="cart__td">1,5 кг <span class="cart__price">х 300 руб.</span></td>
+        //-     <td class="cart__td">450 руб.</td>
+        //-   </tr>
+        //- </table>
+      +e('hr').line
+      +e.bill Итого:
+        +e('span').result 750 руб.
+        +b('input').btn.--cart(type="submit", name="cart-send", id="cart-send", value="Оформить заказ")

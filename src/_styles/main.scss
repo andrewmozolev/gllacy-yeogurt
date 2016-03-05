@@ -1,5 +1,5 @@
 // Normalize Styles
-@import 'node_modules/normalize.css/normalize';
+@import "node_modules/normalize.css/normalize";
 
 // Import Modules
 
@@ -9,25 +9,24 @@
 @import "_fonts";
 @import "_svg-sprite";
 @import "_animations";
+@import "_btn";
 @import "_grid";
 
 // @import "../_modules/btn";
 
 
 // @import "../_modules/page";
-@import "../_modules/header/header";
+@import "../_modules/page-header/page-header";
 @import "../_modules/navigation/navigation";
 @import "../_modules/functions/functions";
-// @import "../_modules/search";
-// @import "../_modules/singin";
-// @import "../_modules/cart";
+@import "../_modules/search/search";
+@import "../_modules/singin/singin";
+@import "../_modules/cart/cart";
 
 
-// @import "../_modules/grid--old";
-// @import "../_modules/grid";
-// @import "../_modules/page-content";
+@import "../_modules/page-content/page-content";
 // @import "../_modules/breadcrumbs";
-// @import "../_modules/slider";
+@import "../_modules/slider/slider";
 // @import "../_modules/action";
 // @import "../_modules/info-blog";
 // @import "../_modules/subscribe";

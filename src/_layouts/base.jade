@@ -1,41 +1,46 @@
-include ../_modules/header/header
+include ../_modules/page-header/page-header
 include ../_modules/navigation/navigation
 include ../_modules/functions/functions
 include ../_modules/search/search
+include ../_modules/singin/singin
+include ../_modules/cart/cart
+include ../_modules/page-content/page-content
+include ../_modules/slider/slider
 include ../_modules/bemto/bemto
 
 //- Custom Configuration
 block config
 
-  //- Setup site's base URL to match the "baseUrl" key within `package.json`
+  //- Setup site"s base URL to match the "baseUrl" key within `package.json`
   //- Otherwise default to relative pathing
-  - var baseUrl = config.baseUrl || './'
+  - var baseUrl = config.baseUrl || "./"
 
 doctype html
 
 <!--[if lt IE 9]>
-<html class='lt-ie9 no-js' lang='en'>
+<html class="lt-ie9 no-js" lang="en">
 <![endif]-->
 <!--[if gte IE 9]><!-->
-<html class='no-js' lang='en'>
+<html class="no-js" lang="en">
 <!--<![endif]-->
 
 head
-  meta(charset='utf-8')
-  meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+  meta(charset="utf-8")
+  meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
   title Глейси
-  meta(name='description', content= 'A new Yeogurt application')
-  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  meta(name="description", content= "A new Yeogurt application")
+  meta(name="viewport", content="width=device-width, initial-scale=1.0")
   block stylesheets
-    link(rel='stylesheet', href= baseUrl + 'styles/main.css')
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,500,700,900&nbsp;subset=latin,cyrillic" rel="stylesheet" type="text/css">
+    link(rel="stylesheet", href= baseUrl + "styles/main.css")
 
 body
   <!--[if lt IE 9]>
-  <p class='browsehappy'>You are using an <strong>outdated</strong> browser. Please <a href='http://browsehappy.com/'>upgrade your browser</a> to improve your experience.</p>
+  <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
   block content
 
   block scripts
-    script(src= baseUrl + 'scripts/main.js')
+    script(src= baseUrl + "scripts/main.js")
 
 </html>

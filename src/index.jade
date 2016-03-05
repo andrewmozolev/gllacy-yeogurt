@@ -1,9 +1,37 @@
 extends _layouts/base
 
-
-
+block append stylesheets
+  link(rel="stylesheet", href= baseUrl + "styles/index.css")
 block content
-  +header
+    style.
+      .slider-input {
+        display: none;
+      }
+      .slider-input[id="toggle-1"]:checked ~ .page,
+      .slider-input[id="toggle-2"]:checked ~ .page,
+      .slider-input[id="toggle-3"]:checked ~ .page {
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+      }
+      .slider-input[id="toggle-1"]:checked ~ .page {
+        background-color: #849d8f;
+        background-image: url(../images/bg_slide-1.jpg);
+      }
+      .slider-input[id="toggle-2"]:checked ~ .page {
+        background-color: #8996a6;
+        background-image: url(../images/bg_slide-2.jpg);
+      }
+      .slider-input[id="toggle-3"]:checked ~ .page {
+        background-color: #9d8b84;
+        background-image: url(../images/bg_slide-3.jpg);
+      }
+    input.slider-input(type="radio" name="toggle" id="toggle-1" checked)
+    input.slider-input(type="radio" name="toggle" id="toggle-2")
+    input.slider-input(type="radio" name="toggle" id="toggle-3")
+    +b.page
+
+      +page-header
+      +page-content
 
 
 

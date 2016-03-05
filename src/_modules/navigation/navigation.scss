@@ -29,6 +29,7 @@
 
   &__link {
     position: relative;
+    z-index: 2;
     display: block;
     min-height: 32px;
     padding: 5px 14px;
@@ -36,16 +37,19 @@
     color: $c_white;
     text-decoration: none;
     border-radius: 16px;
+    cursor: pointer;
     transition: background-color 0.2s, color 0.2s;
   }
 
   &__link:not(.navigation__link--active):active,
   &__link:not(.navigation__link--active):hover {
     background-color: #f7f6f3;
+    color: $c_black;
   }
 
-  &__link:not(.navigation__link--active):active,
-  &__link:not(.navigation__link--active):hover {
+
+  &__item:hover &__link:not(.navigation__link--active) {
+    background-color: #f7f6f3;
     color: $c_black;
   }
 
@@ -66,9 +70,10 @@
   }
 
 
-  &__link:hover::after {
+  &__item:hover::after {
     content: "";
     position: absolute;
+    z-index: 1;
     left: 0;
     bottom: -10px;
     height: 20px;
@@ -115,9 +120,17 @@
   }
 
 
-  &__sub-item:last-of-type &__sub-link{
+  &__sub-item:last-of-type &__sub-link,
+  &__sub-item:last-of-type &__sub-title {
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
+  }
+
+
+  &__sub-item:first-of-type &__sub-link,
+  &__sub-item:first-of-type &__sub-title {
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
   }
 
 
@@ -129,14 +142,20 @@
   }
 
 
-  &__sub-title::after {
+  &__sub-title::after,
+  &__sub-title::before {
     content: "";
     position: absolute;
     left: 6px;
+    right: 6px;
     bottom: 0;
     height: 1px;
-    width: 128px;
     background-color: #d1d0ce;
+  }
+
+
+  &__sub-title::before {
+    top: 0;
   }
 
 

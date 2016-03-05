@@ -1,6 +1,12 @@
-mixin search(spec)
-  - spec = spec || {}
-  - spec.__class = spec.__class || ''
+mixin search
 
-  div(class=spec.__class)&attributes(attributes)
-    p This is an example paragraph for the search module
+  +b.search
+    +e('a').link(href="#",title="Поиск")
+      +e('svg').link-svg.svg-icon_search
+        use(xlink:href="images/svg-sprite.svg#icon_search")
+      +e('span').item-text Поиск
+    +e('form').form(action="/echo" method="post")
+      +e('label').input-label(for="search")
+        +e('input').input(type="search",id="search",name="search",placeholder="Поиск:", required)
+        +e('span').input-name Пoиск
+      +e('button').btn Поиск

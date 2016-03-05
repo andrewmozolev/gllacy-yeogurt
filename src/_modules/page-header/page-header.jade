@@ -1,0 +1,14 @@
+mixin page-header
+
+  +b('header').page-header
+    .container
+      .container__wrap
+        +e.inner
+          +e.logo
+            +e('svg').logo-svg.svg-logo
+              use(xlink:href="images/svg-sprite.svg#logo")
+          +navigation
+          +functions
+          +e.contact
+            +e('span').contact-time С 10 до 20, ежедневно
+            +e('a').contact-number(href="#",title="8 812 450-25-25") 8 812 450-25-25
